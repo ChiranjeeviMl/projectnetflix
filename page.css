@@ -22,7 +22,6 @@ body{
     margin-top:24px;
     margin-left:80px;
 }
-
 #head1 >img{
     width:4%;
     height:22px;
@@ -32,7 +31,7 @@ body{
 .homepage{
     height:400px;
     width:100%;
-    background-image:url('../home.html/images/banner.jpg');
+    background-image:url(../Document/images/RED\ NOTICE.jpg);
     background-size: 100% 400px;
     border:1px solid black;
 }
