@@ -21,19 +21,20 @@
             <span class="head1">MY List</span>
             <span class="head1">Children</span>
             <span id="head1"><img src="images/netflix-avatar.png"/></span>
+            <a href="#" style="display: contents;">
+                <div class="address-my">
+
+                    <div id="imG-container">
+                        <img src="" alt="" id="imG">
+                    </div>
+                    <span id="temperature-here"><span class="temp-display"></span>&deg; C</span>
+
+                    <span id="address-me"><span class="temp-display"></span> <i class="bi bi-geo-alt-fill"></i></span>
+
+                </div>
+            </a>
         </div>
-        <script>
-            const successCallback = (position) => {
-                console.log(position);
-            };
-            const errorCallback = (error) => {
-                console.error(error);
-            };
-            navigator.geolocation.getCurrentPosition(successCallback, errorCallback, {
-                enableHighAccuracy:true,
-                timeout:5000
-            })
-        </script>
+        
         <div class="day-n-night" type="button" onclick="change_mode();">
             <i class="bi bi-brightness-high-fill" id="change-mode"></i>
         </div>
