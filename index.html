@@ -6,8 +6,12 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
         <link rel="stylesheet" href="page.css">
+        
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
+        <link rel="stylesheet" href="node_modules/flag-icons-svg/css/flag-icons.css">
+        <script src="myscript.js"></script>
     </head>
-    <body>
+    <body >
         <div class="header">
             <span id="head "><img  class="netlogo" src="images/netflix-logo.png"/></span>
             <span class="head1">Home</span>
@@ -17,6 +21,21 @@
             <span class="head1">MY List</span>
             <span class="head1">Children</span>
             <span id="head1"><img src="images/netflix-avatar.png"/></span>
+        </div>
+        <script>
+            const successCallback = (position) => {
+                console.log(position);
+            };
+            const errorCallback = (error) => {
+                console.error(error);
+            };
+            navigator.geolocation.getCurrentPosition(successCallback, errorCallback, {
+                enableHighAccuracy:true,
+                timeout:5000
+            })
+        </script>
+        <div class="day-n-night" type="button" onclick="change_mode();">
+            <i class="bi bi-brightness-high-fill" id="change-mode"></i>
         </div>
         <div class="homepage">
             <div class="home-contents">
@@ -30,6 +49,26 @@
                 </div>
                 </div>
         </div>
+
+        <div>
+            <center>
+            </center>
+            <div id="coupon">
+                <button onClick="closeCoupon()">&times;</button>
+                <img class="c1" src="images/netflix-logo.png"/>
+                <p class="p3 ">Discount of 40% on 1 year Subscription</p>
+                <p class="p3">Discount of 50% on 6 months plan</p>
+                <p class="p3">30 days free on every new subscription</p><hr>
+                <button id="coup" type="button" class="btn btn-success">Subscription</button>
+            </div>
+        </div>
+        <script>
+            window.onload = loadCoupon()
+        </script>
+
+        
+        
+
         <div class="page1">
             <h2>Top Search</h2>
             <div class="Trending">

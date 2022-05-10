@@ -1,0 +1,53 @@
+<div class="header">
+            <span id="head "><img  class="netlogo" src="images/netflix-logo.png"/></span>
+            <span class="head1">Home</span>
+            <span class="head1">TV Shows</span>
+            <span class="head1">Movies</span>
+            <span class="head1">New & Popular</span>
+            <span class="head1">MY List</span>
+            <span class="head1">Children</span>
+            <span id="head1"><img src="images/netflix-avatar.png"/></span>
+        </div>
+
+
+
+        <button id="location" onClick="geolocation()">
+            Get Location
+        </button>
+
+        <button onClick="geolocation()">
+            Get Geo
+        </button>
+        <p id="out"></p>
+        <div id="icon"></div>
+            <img src='https://openweathermap.org/img/w/01d.png'/>
+            <script>
+                let x = document.getElementById('out');
+                function geolocation(){
+                    if(navigator.geolocation){
+                        navigator.geolocation.getCurrentPosition(showPosition)
+                    }else{
+                        x.innerText="Geo Not Supported"
+                    }
+                }
+    
+                function showPosition(data){
+                    console.log(data)
+                    sessionStorage.setItem('data',data)
+                    // x.innerText=`Latitude is ${data.coords.latitude} & Longitude is ${data.coords.longitude}`
+                    let latitude = data.coords.latitude;
+                    let longitude = data.coords.longitude
+                    const url = `https://api.openweathermap.org/data/2.5/forecast/daily?lat=${latitude}&lon=${longitude}&mode=json&units=metric&cnt=1&appid=fbf712a5a83d7305c3cda4ca8fe7ef29`;
+    
+                    /// api Calling 
+                    fetch(url,{method:'GET'})
+                    // return promise
+                    .then((res) => res.json())
+                    // return data
+                    .then((data) => {
+                        let cityName = data.city.name
+                        let weather = data.list[0].temp.day
+                        x.innerText = `Weather of ${cityName} is ${weather} °C`
+                    })
+                }
+            </script>
